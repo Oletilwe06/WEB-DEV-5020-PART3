@@ -1,0 +1,1225 @@
+/* ============================================================
+   OLE FOUNDATION — EXTERNAL STYLESHEET (Redesigned)
+   Author: [Your Name]
+   Part 2: CSS Styling for Desktop + Responsive Solution
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. CSS RESET + BASE STYLES
+   ------------------------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* 1rem = 16px */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', 'Trebuchet MS', Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #2c3e42;
+  background-color: #fdfbf7;
+  letter-spacing: 0.01em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+ul { list-style: none; }
+
+/* ------------------------------------------------------------
+   2. DESIGN TOKENS (colour, spacing — easy to reuse)
+   ------------------------------------------------------------ */
+:root {
+  /* Colours */
+  --navy:      #0f2f3a;    /* Primary dark */
+  --navy-dark: #092029;    /* Deeper shade */
+  --gold:      #e6b91e;    /* Accent 1 */
+  --gold-dark: #c9a018;    /* Accent 1 hover */
+  --terracotta:#c96f4a;    /* Accent 2 — warm */
+  --sage:      #7ea88a;    /* Accent 3 — calm */
+  --cream:     #fdfbf7;    /* Page background */
+  --sand:      #f3ede2;    /* Section background */
+  --mist:      #e8f0f1;    /* Card background */
+  --charcoal:  #2c3e42;    /* Body text */
+  --grey:      #6b7a7e;    /* Muted text */
+  --white:     #ffffff;
+  --border:    #e4dccd;
+
+  /* Spacing */
+  --radius-sm: 16px;
+  --radius-md: 28px;
+  --radius-lg: 60px;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(15, 47, 58, 0.06);
+  --shadow-md: 0 10px 26px rgba(15, 47, 58, 0.08);
+  --shadow-lg: 0 18px 40px rgba(15, 47, 58, 0.12);
+}
+
+/* ------------------------------------------------------------
+   3. TYPOGRAPHY
+   ------------------------------------------------------------ */
+h1, h2, h3, h4 {
+  color: var(--navy);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 2.6rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.35rem; }
+h4 { font-size: 1.1rem; }
+
+p {
+  font-size: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+strong { font-weight: 700; color: var(--navy); }
+em     { color: var(--grey); }
+
+/* ------------------------------------------------------------
+   4. HEADER & NAVIGATION
+   ------------------------------------------------------------ */
+.site-header {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 1.1rem 0;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  z-index: 10;
+}
+
+/* Tiny gold stripe at top of the header for personality */
+.site-header::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--terracotta), var(--sage));
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+
+.logo-accent {
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+}
+
+.nav-link {
+  color: #e8e2d6;
+  font-weight: 600;
+  font-size: 0.98rem;
+  padding: 0.4rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--white);
+  border-bottom-color: var(--gold);
+  outline: none;
+}
+
+.nav-link.active {
+  color: var(--white);
+  border-bottom-color: var(--gold);
+}
+
+/* ------------------------------------------------------------
+   5. SHARED: Page intro (all inner pages)
+   ------------------------------------------------------------ */
+.page-intro {
+  padding: 3rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+.page-intro h1 {
+  font-size: 2.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.page-intro-text {
+  font-size: 1.1rem;
+  max-width: 780px;
+  margin: 0 auto;
+  color: var(--grey);
+}
+
+/* Small decorative underline under page titles */
+.page-intro h1::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 4px;
+  margin: 1rem auto 0;
+}
+
+/* ------------------------------------------------------------
+   6. SHARED: Buttons
+   ------------------------------------------------------------ */
+.btn,
+.btn-cta,
+.btn-submit {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--navy);
+  border: 2px solid var(--navy);
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  background: var(--navy);
+  color: var(--white);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.btn-cta,
+.btn-submit {
+  background-color: var(--gold);
+  color: var(--navy);
+}
+
+.btn-cta:hover,
+.btn-submit:hover,
+.btn-cta:focus,
+.btn-submit:focus {
+  background-color: var(--gold-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  outline: none;
+}
+
+/* ------------------------------------------------------------
+   7. HOMEPAGE — Hero
+   ------------------------------------------------------------ */
+.hero-section { padding: 2.5rem 1.5rem; }
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #e8f0f1 0%, #dfe8ea 100%);
+  border-radius: var(--radius-md);
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-content { flex: 1 1 340px; }
+
+.hero-title {
+  font-size: 2.8rem;
+  color: var(--navy);
+  margin-bottom: 0.9rem;
+}
+
+.hero-text {
+  font-size: 1.15rem;
+  color: var(--charcoal);
+  margin-bottom: 1.75rem;
+  max-width: 520px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.hero-image {
+  flex: 1 1 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  border-radius: var(--radius-md);
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+}
+
+/* ------------------------------------------------------------
+   8. HOMEPAGE — Mission / Get involved
+   ------------------------------------------------------------ */
+.mission-section { padding: 1.5rem 1.5rem; }
+
+.mission-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.mission-block { flex: 1 1 320px; }
+
+.mission-block h2 {
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--gold);
+  display: inline-block;
+  margin-bottom: 0.85rem;
+}
+
+/* ------------------------------------------------------------
+   9. HOMEPAGE — Info bar
+   ------------------------------------------------------------ */
+.info-bar-section { padding: 1rem 1.5rem; }
+
+.info-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--sand);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border: 1px solid var(--border);
+}
+
+.info-text {
+  font-size: 1rem;
+  color: var(--charcoal);
+}
+
+.info-text strong {
+  color: var(--navy);
+}
+
+.info-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.social-btn {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.social-btn:hover,
+.social-btn:focus {
+  background-color: var(--gold);
+  color: var(--navy);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* ------------------------------------------------------------
+   10. HOMEPAGE — Value cards (Food, Clothing, Shelter)
+   ------------------------------------------------------------ */
+.values-section { padding: 2rem 1.5rem 3.5rem; }
+
+.values-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.value-card {
+  flex: 1 1 260px;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* A thin gold stripe on the left of each card */
+.value-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--gold);
+  transition: width 0.25s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+}
+
+.value-card:hover::before { width: 8px; }
+
+.value-card h3 {
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+  font-size: 1.4rem;
+}
+
+/* ------------------------------------------------------------
+   11. ABOUT PAGE
+   ------------------------------------------------------------ */
+.story-section { padding: 1.5rem 1.5rem; }
+
+.story-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: var(--white);
+  border-radius: var(--radius-md);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.story-card h2 { margin-bottom: 1rem; }
+
+.story-card > p { margin-bottom: 1.75rem; }
+
+.mission-vision {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.mv-card {
+  flex: 1 1 320px;
+  background-color: var(--mist);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mv-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.mv-card h3 {
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+  font-size: 1.4rem;
+}
+
+/* --- Team --- */
+.team-section {
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+}
+
+.section-subtitle {
+  color: var(--grey);
+  margin-bottom: 2rem;
+}
+
+.team-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.team-member {
+  flex: 1 1 210px;
+  max-width: 260px;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold);
+}
+
+.team-member strong {
+  color: var(--navy);
+  font-size: 1.05rem;
+}
+
+.team-member span {
+  font-size: 0.85rem;
+  color: var(--grey);
+}
+
+/* Small avatar dot above the name */
+.team-member::before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--terracotta));
+  margin-bottom: 0.5rem;
+}
+
+/* --- Stats bar --- */
+.stats-section { padding: 1.5rem 1.5rem 3.5rem; }
+
+.stats-bar {
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: var(--sand);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.stat-item {
+  flex: 1 1 160px;
+  color: var(--navy);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------
+   12. SERVICES PAGE
+   ------------------------------------------------------------ */
+.services-section { padding: 1.5rem 1.5rem; }
+
+.services-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+}
+
+.service-card {
+  flex: 1 1 400px;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+/* A coloured ribbon at the top of each service card */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  background: linear-gradient(90deg, var(--gold), var(--terracotta));
+}
+
+.service-card:nth-child(2)::before {
+  background: linear-gradient(90deg, var(--terracotta), var(--sage));
+}
+.service-card:nth-child(3)::before {
+  background: linear-gradient(90deg, var(--sage), var(--navy));
+}
+.service-card:nth-child(4)::before {
+  background: linear-gradient(90deg, var(--navy), var(--gold));
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-card h2 {
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+}
+
+.service-card ul {
+  padding-left: 0;
+  margin: 0.9rem 0 1rem;
+}
+
+.service-card ul li {
+  padding: 0.35rem 0 0.35rem 1.6rem;
+  position: relative;
+  color: var(--charcoal);
+}
+
+.service-card ul li::before {
+  content: "✓";
+  color: var(--sage);
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.service-quote {
+  margin-top: 1rem;
+  color: var(--grey);
+  font-size: 0.95rem;
+  font-style: italic;
+  border-left: 3px solid var(--gold);
+  padding-left: 0.85rem;
+}
+
+/* --- Locations bar --- */
+.locations-section { padding: 1.5rem 1.5rem; }
+
+.locations-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--sand);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.locations-item {
+  flex: 1 1 220px;
+  color: var(--charcoal);
+}
+
+.locations-item h3 {
+  color: var(--navy);
+  margin-bottom: 0.35rem;
+  font-size: 1.2rem;
+}
+
+.locations-item p {
+  font-size: 0.9rem;
+  color: var(--grey);
+  margin: 0;
+}
+
+/* --- CTA card --- */
+.cta-section { padding: 1.5rem 1.5rem 3.5rem; }
+
+.cta-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+  border-radius: var(--radius-md);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.cta-card h2 {
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+
+.cta-card p {
+  color: #d9d4c7;
+  margin-bottom: 1.5rem;
+}
+
+/* ------------------------------------------------------------
+   13. ENQUIRY PAGE
+   ------------------------------------------------------------ */
+.enquiry-section { padding: 1.5rem 1.5rem; }
+
+.enquiry-card {
+  max-width: 780px;
+  margin: 0 auto;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.enquiry-form { width: 100%; }
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form-row .form-group { flex: 1 1 240px; }
+
+/* --- Form groups (shared by Enquiry + Contact) --- */
+.form-group { margin-bottom: 1.25rem; }
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.9rem 1.15rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #fdfcf8;
+  color: var(--charcoal);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.form-group textarea {
+  border-radius: var(--radius-md);
+  resize: vertical;
+  min-height: 130px;
+}
+
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%230f2f3a' d='M6 8L0 0h12z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1.25rem center;
+  background-size: 12px;
+  padding-right: 3rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--navy);
+  background-color: var(--white);
+  box-shadow: 0 0 0 4px rgba(15, 47, 58, 0.1);
+}
+
+.form-submit {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+/* --- Why volunteer / sponsor --- */
+.why-section { padding: 1.5rem 1.5rem; }
+
+.why-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.why-card {
+  flex: 1 1 320px;
+  background-color: var(--mist);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.75rem;
+  border-left: 5px solid var(--gold);
+  transition: transform 0.2s ease;
+}
+
+.why-card:hover { transform: translateY(-4px); }
+
+.why-card h3 {
+  color: var(--navy);
+  margin-bottom: 0.85rem;
+}
+
+.why-card ul li {
+  padding: 0.4rem 0 0.4rem 1.7rem;
+  position: relative;
+  color: var(--charcoal);
+}
+
+.why-card ul li::before {
+  content: "→";
+  color: var(--terracotta);
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+}
+
+/* --- Quick contact bar --- */
+.quick-contact-section { padding: 1.5rem 1.5rem 3.5rem; }
+
+.quick-contact-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--sand);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.quick-contact-item {
+  flex: 1 1 220px;
+  color: var(--charcoal);
+}
+
+.quick-contact-item b {
+  display: block;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+  font-size: 1.05rem;
+}
+
+.quick-contact-item span {
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+
+/* ------------------------------------------------------------
+   14. CONTACT PAGE
+   ------------------------------------------------------------ */
+.contact-section { padding: 1.5rem 1.5rem; }
+
+.contact-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.contact-left { flex: 1 1 420px; }
+
+.contact-right {
+  flex: 1 1 420px;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-left h2,
+.contact-right h2 {
+  margin-bottom: 0.5rem;
+}
+
+/* --- Location cards --- */
+.location-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 1.15rem 0;
+}
+
+.location-card {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  border-left: 4px solid var(--gold);
+}
+
+.location-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--gold);
+}
+
+.location-hours {
+  font-size: 0.85rem;
+  color: var(--grey);
+}
+
+/* --- Map placeholder --- */
+.map-placeholder {
+  background: linear-gradient(135deg, #dcd4c2, #cbc0aa);
+  border-radius: var(--radius-md);
+  padding: 2.75rem 1rem;
+  text-align: center;
+  color: var(--navy);
+  margin: 1.25rem 0;
+}
+
+.map-placeholder b {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 1.05rem;
+}
+
+/* --- Contact details row --- */
+.contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: var(--mist);
+  border-radius: var(--radius-md);
+  padding: 1.35rem 1.5rem;
+  margin: 1rem 0;
+}
+
+.contact-detail { flex: 1 1 180px; }
+
+.contact-detail b {
+  display: block;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+
+/* --- Contact social buttons --- */
+.contact-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+}
+
+/* --- Contact form --- */
+.contact-form { margin-top: 1rem; }
+
+/* --- Quick help bar --- */
+.quick-help-section { padding: 1.5rem 1.5rem 3.5rem; }
+
+.quick-help-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--sand);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.quick-help-item {
+  flex: 1 1 220px;
+  color: var(--charcoal);
+}
+
+.quick-help-item b {
+  display: block;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+
+.quick-help-item span {
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+
+/* ------------------------------------------------------------
+   15. GALLERY PAGE
+   ------------------------------------------------------------ */
+.gallery-section { padding: 1.5rem 1.5rem 3.5rem; }
+
+.gallery-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--mist);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.gallery-grid img {
+  width: calc(25% - 0.75rem);
+  height: 210px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 4px solid var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-grid img:hover,
+.gallery-grid img:focus {
+  transform: scale(1.06) rotate(-1deg);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+  outline: none;
+}
+
+/* ------------------------------------------------------------
+   16. FOOTER
+   ------------------------------------------------------------ */
+.site-footer {
+  background-color: var(--navy);
+  color: #cfc9bc;
+  padding: 2rem 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  margin-top: 3rem;
+  position: relative;
+}
+
+/* Thin gradient line above the footer content */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  border-radius: 3px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-text { font-size: 0.95rem; }
+
+.footer-social {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.footer-social a {
+  display: inline-block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-social a:hover,
+.footer-social a:focus {
+  transform: scale(1.15);
+  opacity: 0.85;
+  outline: none;
+}
+
+.footer-social img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+/* ============================================================
+   17. RESPONSIVE DESIGN — 3 BREAKPOINTS
+   ============================================================ */
+
+/* --- Breakpoint 1: TABLET (≤ 900px) --- */
+@media (max-width: 900px) {
+  html { font-size: 15px; }
+
+  .hero-title { font-size: 2.3rem; }
+  .page-intro h1 { font-size: 2.2rem; }
+
+  .hero-container { padding: 2.25rem 1.75rem; }
+  .enquiry-card,
+  .story-card { padding: 2rem 1.5rem; }
+
+  .gallery-grid img {
+    width: calc(33.333% - 0.75rem);
+  }
+
+  .service-card { flex: 1 1 100%; }
+}
+
+/* --- Breakpoint 2: MOBILE (≤ 680px) --- */
+@media (max-width: 680px) {
+  html { font-size: 14px; }
+
+  /* Header stacks vertically */
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .main-nav {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 0.5rem 1rem;
+  }
+
+  .nav-link { font-size: 0.9rem; }
+
+  /* Hero stacks */
+  .hero-container {
+    flex-direction: column;
+    padding: 1.75rem 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .hero-title { font-size: 1.95rem; }
+  .page-intro h1 { font-size: 1.85rem; }
+  .hero-text { font-size: 1rem; }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn,
+  .btn-cta,
+  .btn-submit {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Everything flex → stacked */
+  .mission-container,
+  .mission-vision,
+  .values-container,
+  .why-grid,
+  .services-grid,
+  .contact-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .value-card,
+  .mv-card,
+  .why-card,
+  .service-card,
+  .contact-left,
+  .contact-right {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  /* Bars become column */
+  .info-bar,
+  .stats-bar,
+  .locations-bar,
+  .quick-help-bar,
+  .quick-contact-bar {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1.25rem;
+    border-radius: var(--radius-md);
+  }
+
+  .info-social,
+  .contact-social {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Form rows stack */
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  .form-row .form-group { flex: 1 1 100%; }
+
+  /* Team becomes 2-up */
+  .team-grid { gap: 0.9rem; }
+  .team-member {
+    flex: 1 1 45%;
+    max-width: 100%;
+  }
+
+  /* Gallery becomes 2-up */
+  .gallery-grid { gap: 0.75rem; }
+  .gallery-grid img { width: calc(50% - 0.375rem); } }
