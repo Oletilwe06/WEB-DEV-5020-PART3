@@ -1,0 +1,23 @@
+!
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://YOUR-DOMAIN.example/</loc>
+    </url>
+    <url>
+        <loc>https://YOUR-DOMAIN.example/about.html</loc>
+    </url>
+    <url>
+        <loc>https://YOUR-DOMAIN.example/services.html</loc>
+    </url>
+    <url>
+        <loc>https://YOUR-DOMAIN.example/gallery.html</loc>
+    </url>
+    <url>
+        <loc>https://YOUR-DOMAIN.example/enquiry.html</loc>
+    </url>
+    <url>
+        <loc>https://YOUR-DOMAIN.example/Contact.html</loc>
+    </url>
+</urlset>

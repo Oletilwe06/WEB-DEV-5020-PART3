@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OLE Foundation · Enquiry</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="jsassets/main.js" defer></script>
+
+
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> enquiries and volunteering at OLE Foundation | Community Support in South Africa</title>
+
+<meta
+    name="enquiry"
+    content="OLE Foundation welcomes all enquiries about our services, community projects,
+    and available support. Please complete the enquiry form below with your details and message,
+    and our team will do their best to assist you and respond to your questions."
+>
+
+<meta name="robots" content="enquiry, follow">
+
+<link rel="stylesheet" href="style.css">
+<script src="jsassets/main.js" defer></script>
+
+
+
+</head>
+<body>
+
+  <!-- ===== HEADER & NAVIGATION ===== -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo">
+        OLE <span class="logo-accent">FOUNDATION</span>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="enquiry.html" class="nav-link active">Enquiry</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== ENQUIRY PAGE CONTENT ===== -->
+  <main>
+
+    <!-- Page title -->
+    <section class="page-intro">
+      <h1>Enquiry · volunteer or sponsor</h1>
+      <p class="page-intro-text">
+        Fill in the form below to volunteer your time or become a sponsor. We'll get back to you within 48 hours.
+      </p>
+    </section>
+
+    <!-- Enquiry form -->
+    <section class="enquiry-section">
+      <div class="enquiry-card">
+        <form class="enquiry-form">
+
+          <!-- Row 1: Full name & Email (side by side) -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="enq-name"><b>Full name *</b></label>
+              <input type="text" id="enq-name" placeholder="e.g. Maria Santos" required>
+            </div>
+            <div class="form-group">
+              <label for="enq-email"><b>Email *</b></label>
+              <input type="email" id="enq-email" placeholder="maria@email.com" required>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="enq-phone"><b>Phone</b></label>
+            <input type="tel" id="enq-phone" placeholder="+27 82 123 4567">
+          </div>
+
+          <!-- Interest dropdown -->
+          <div class="form-group">
+            <label for="enq-interest"><b>I am interested in:</b></label>
+            <select id="enq-interest">
+              <option>Volunteering</option>
+              <option>Becoming a sponsor</option>
+              <option>Both</option>
+              <option>General enquiry</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label for="enq-message"><b>Message</b></label>
+            <textarea id="enq-message" rows="5" placeholder="Tell us how you'd like to help..."></textarea>
+          </div>
+
+          <!-- Submit -->
+          <div class="form-group form-submit">
+            <button type="submit" class="btn-submit">Send enquiry</button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- Why volunteer / sponsor -->
+    <section class="why-section">
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>Why volunteer?</h3>
+          <ul>
+            <li>Make a direct impact in your community</li>
+            <li>Gain valuable experience and skills</li>
+            <li>Meet like-minded people</li>
+            <li>Flexible hours to suit your schedule</li>
+          </ul>
+        </div>
+        <div class="why-card">
+          <h3>Why become a sponsor?</h3>
+          <ul>
+            <li>Help fund essential services</li>
+            <li>Support a family or individual in need</li>
+            <li>Corporate sponsorship opportunities</li>
+            <li>Tax-deductible contributions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick contact alternative -->
+    <section class="quick-contact-section">
+      <div class="quick-contact-bar">
+        <div class="quick-contact-item">
+          <b>Prefer to call?</b><br>
+          <span>+27 21 555 0199 · Mon–Fri 9am–5pm</span>
+        </div>
+        <div class="quick-contact-item">
+          <b>Email us</b><br>
+          <span>hello@olefoundation.org</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-text">
+        © 2026 OLE Foundation · Non-profit
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/accounts/login/?hl=en">
+          <img src="images/instagram.png" alt="Instagram" />
+        </a>
+        <a href="https://web.facebook.com/?_rdc=1&_rdr#">
+          <img src="images/facebook.png" alt="Facebook" />
+        </a>
+        <a href="https://x.com/">
+          <img src="images/twitter.png" alt="Twitter" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+
+
+<section class="enquiry-section">
+    <h1>Make an Enquiry</h1>
+    <p>Contact OLE Foundation about volunteering, donations or support.</p>
+
+    <form id="enquiryForm" class="js-validated-form">
+        <label for="fullName">Full name:</label>
+        <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            autocomplete="name"
+            required
+        >
+
+        <label for="email">Email address:</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+        >
+
+        <label for="phone">Phone number:</label>
+        <input
+            type="tel"
+            id="phone"
+            name="phone"
+            autocomplete="tel"
+            pattern="[0-9 +()-]{7,20}"
+            title="Enter a valid phone number."
+            required
+        >
+
+        <label for="enquiryType">Type of enquiry:</label>
+        <select id="enquiryType" name="enquiryType" required>
+            <option value="">Choose an option</option>
+            <option value="volunteering">Volunteering</option>
+            <option value="donations">Donations</option>
+            <option value="sponsorship">Sponsorship</option>
+            <option value="community-support">Community support</option>
+        </select>
+
+        <label for="message">Your message:</label>
+        <textarea
+            id="message"
+            name="message"
+            rows="5"
+            minlength="10"
+            maxlength="1000"
+            required
+        ></textarea>
+
+        <button type="submit">Submit Enquiry</button>
+
+        <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+</section>
