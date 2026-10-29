@@ -47,10 +47,6 @@ The following tests should be completed:
 - Added SEO support files.
 - Updated website testing and deployment documentation.
 
-### Deployment
-The website can be deployed using GitHub Pages or Netlify.
-The published website URL should be added here after deployment.
-
 ### References
 Mozilla Developer Network (MDN) (n.d.) *JavaScript*.
 Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript
